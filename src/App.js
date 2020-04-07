@@ -1,13 +1,14 @@
-import React from "react";
-import RandomQuestions from "./randomQuestion";
-import "./styles.css";
-
-export default function App() {
+import React from 'react';
+import logo from './logo.svg';
+// import './App.css';
+import './style.scss';
+// import 'https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap';
+function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <RandomQuestions />
-      <h2>Start editing to see some magic happen!</h2>
+      <p> This an example to see if this file is connected the scss file</p>
     </div>
   );
 }
+
+export default App;
