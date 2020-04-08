@@ -1,8 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 // import './App.css';
-import './style.scss';
+import './style/style.scss';
 // import 'https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap';
+
 function App() {
   return (
     <div className="App">
