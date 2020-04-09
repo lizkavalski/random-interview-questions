@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+body{
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+}
+h1{
+  font: 5em 'Source Sans Pro', sans-serif;
+  padding-left: 2.5em;
+}
+p{ 
+  border: 1px solid #d0d48f;
+  box-shadow: .5em .5em #9c9c9c;
+  background-color: #f7fca7;
+  padding: 2em;
+  height: 8em;
+  font: 2em 'Indie Flower', cursive;
+}
