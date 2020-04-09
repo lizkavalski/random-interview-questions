@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-.App{
-  background-color: #68ff4a;
+body{
+  background-color: #d9d9d9;
+  display: flexbox;
 }
 p{
-  display: flexbox;
   justify-content: center;
   align-self: center;
+  border: 1px solid #d0d48f;
+  padding: 10px;
+  box-shadow: .5em .5em #9c9c9c;
   background-color: #f7fca7;
   margin: 5em;
-  padding: 2em;
+  height: 10em;
   font: 2em 'Indie Flower', cursive;
 }
