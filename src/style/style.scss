@@ -11,12 +11,38 @@ body{
 h1{
   font: 5em 'Source Sans Pro', sans-serif;
   padding-left: 2.5em;
+  margin-bottom: 0em;
+  margin-top: 0em;
 }
 p{ 
   border: 1px solid #d0d48f;
   box-shadow: .5em .5em #9c9c9c;
   background-color: #f7fca7;
+  background-image: url("https://www.transparenttextures.com/patterns/brilliant.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  margin-bottom: 0em;
   padding: 2em;
   height: 8em;
   font: 2em 'Indie Flower', cursive;
+}
+ #buttons {
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-self: center;
+  ;
+}
+#before{
+  background-image: linear-gradient(to right,#942525 , #ff4242 );
+  font: 1.5em 'Source Sans Pro', sans-serif;
+  width: 5em;
+  margin-right: 3em;
+}
+#next{
+  background-image: linear-gradient(to right,#1a661f, #42f54e);;
+  font: 1.5em 'Source Sans Pro', sans-serif;
+  width: 5em;
+  margin-left: 3em;
 }
