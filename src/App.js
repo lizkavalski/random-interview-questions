@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-// import './App.css';
 import './style/style.scss';
-// import 'https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap';
 
 function App() {
   return (
     <div className="App">
       <h1>Interview Prep!</h1>
-      <p> This an example to see if this file is connected the scss file</p>
+      <p> This is where Interview questions go</p>
+      <div id='buttons'>
+        <button id='before'>Previous</button> 
+        <button id= 'next'>Next</button>
+      </div>
     </div>
   );
 }
