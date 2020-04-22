@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+$whitefont: #ededed;
+
 
 body{
   background-color: #d9d9d9;
@@ -39,10 +41,12 @@ p{
   font: 1.5em 'Source Sans Pro', sans-serif;
   width: 5em;
   margin-right: 3em;
+  color: $whitefont;
 }
 #next{
   background-image: linear-gradient(to right,#1a661f, #42f54e);;
   font: 1.5em 'Source Sans Pro', sans-serif;
   width: 5em;
   margin-left: 3em;
+  color: $whitefont;
 }
