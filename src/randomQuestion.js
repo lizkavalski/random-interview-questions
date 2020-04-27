@@ -1,14 +1,22 @@
 import React from 'react';
 import './style/style.scss';
+import data from '../data.json'
 
-function App() {
-  
+
+class RandomQuestion {
+  constructor() {
+    this.state = { questionAsked: [0] };
+  };
+  let askedquestion=[]
+  let askRandomQuestion()=
+  let randomQuestionAsked = data[parseInt(Math.random() * data.length)];
+
+}
   return (
     <div className="App">
-      <h1>Interview Prep!</h1>
-      <p> This an example to see if this file is connected the scss file</p>
+      <p> </p>
     </div>
   );
 }
 
-export default App;
+export default RandomQuestion;
