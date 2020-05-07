@@ -1,5 +1,6 @@
 import React from 'react';
 import './style/style.scss';
+import data from './component/data.json'
 // import RandomQuestion from '../src/component/randomQuestion'
 
 

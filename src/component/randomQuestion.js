@@ -32,6 +32,10 @@ const questions = [
 ];
 
 class RandomQuestion extends App{
+constructor(){
+  state=
+}
+
   getRandomQuestion(){
     let question = questions[Math.floor(Math.random() * questions.length)];
     document.body.innerHTML = question
