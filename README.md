@@ -1,4 +1,4 @@
 # random-interview-questions
-Created with CodeSandbox
 
-The project  is to render a random question from a json file onto the webpage. THe questions are interview questions for a software developer. 
+### Propose
+1.1.0 The project is to render a random question from onto the webpage. THe questions are based on interview questions for a software developer. 
