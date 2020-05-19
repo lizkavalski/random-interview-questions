@@ -10,7 +10,6 @@ function App() {
       <h1>Interview Prep!</h1>
       <RandomQuestion/>
       <div id='buttons'>
-        {/* render a new question */}
         <button id= 'next'>Next</button>
       </div>
     </div>
