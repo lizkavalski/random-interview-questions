@@ -1,7 +1,9 @@
-import React from 'react';
-// import './style/style.scss';
+import React,{Component} from 'react';
 import App from '../App.js';
+
 // import question from './data.js';
+
+
 const questions = [
   'How would you describe yourself in one word?',
   'Tell me one strength, and one weakness of yours?',
@@ -30,20 +32,26 @@ const questions = [
   'How did you heat about this position?',
   'What are your salary requirements?',
 ];
+class RandomQuestion extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      question: 'Let Begin',
+      getRandomQuestion: this.getRandomQuestion
+    };
+  }
 
-class RandomQuestion extends App{
   getRandomQuestion(){
-    let question = questions[Math.floor(Math.random() * questions.length)];
-    document.body.innerHTML = question
+    // let questionpicker = questions[Math.floor(Math.random() * questions.length)];
+    this.setState({question:this.state.questions[Math.floor(Math.random() * questions.length)]})
+    return(
+      <RandomQuestion value ={this.state}>
+        {this.props.childern}
+      </RandomQuestion>
+    )
   }
-  render(){
-    return (
-      <>
-      <p>getRandomQuestion </p>
-      </>
-      );
-  }
-};
+}
+
 
 
 export default RandomQuestion;

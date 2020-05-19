@@ -1,15 +1,16 @@
 import React from 'react';
 import './style/style.scss';
-// import RandomQuestion from '../src/component/randomQuestion'
+import data from './component/data.json'
+import RandomQuestion from './component/randomQuestion';
 
 
 function App() {
   return (
     <div className="App">
       <h1>Interview Prep!</h1>
-      <p>This is where the random Question funtion will go</p>
+      <RandomQuestion/>
       <div id='buttons'>
-        <button id='before'>Previous</button> 
+        {/* render a new question */}
         <button id= 'next'>Next</button>
       </div>
     </div>
