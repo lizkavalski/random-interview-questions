@@ -1,8 +1,9 @@
 import React, {useState } from 'react';
 import axios from 'axios';
-import Card from '@material-ui/core/Card'
 import Box from'@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import { borders } from '@material-ui/system'
+
 
 
 function RandomQuestion(){
@@ -21,12 +22,12 @@ function RandomQuestion(){
       <Box display="flex" flexDirection="row" justifyContent="center" flexWrap="warp">
         <h1>Interview Perp!</h1>
       </Box>
-      <Card display="flex" flexDirection="row" justifyContent="center" flexWrap="warp">
+      <Box bgcolor="#f7fca7" display="flex" flexDirection="row" justifyContent="center" alignItems="center" flexWrap="warp">
         <p>{question}</p>
-      </Card>
+      </Box>
       <Box display="flex" flexDirection="row" justifyContent="center" flexWrap="warp">
         <div>
-          <Button variant="contained" color="primary"  monClick={fetchData}>Next</Button>
+          <Button variant="contained" color="primary"  onClick={fetchData}>Next</Button>
         </div>
       </Box>
     </Box>
