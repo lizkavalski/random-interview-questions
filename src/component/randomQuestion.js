@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 function RandomQuestion(){
-  const [question, setQuestion] = useState(null);
+  const [question, setQuestion] = useState([]);
   
   const url = 'https://random-interview.herokuapp.com/question/random';
   const fetchData = async () => { 
