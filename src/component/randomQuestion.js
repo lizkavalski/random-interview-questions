@@ -1,10 +1,8 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from'@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { borders, style } from '@material-ui/system'
 import {makeStyles} from '@material-ui/core/styles';
-
 const useStyles = makeStyles({
   base:{
     background:'#d9d9d9',
@@ -16,6 +14,7 @@ const useStyles = makeStyles({
     justifyContent:"center",
     flexWrap:"warp", 
     fontSize:"3em",
+  
   },
   noteCard:{
     background:"#f7fca7",
@@ -26,6 +25,12 @@ const useStyles = makeStyles({
     flexWrap:"warp",
     padding:"5em",
     fontSize:"2em",
+  },
+  spinLoad:{
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"center",
+    flexWrap:"warp", 
   },
   buttonBox:{
     display:"flex",
@@ -44,23 +49,26 @@ const useStyles = makeStyles({
     height: 48,
     padding: '0 30px',
   }
-})
-
-
-
-
-
+});
 
 function RandomQuestion(){
-  const [question, setQuestion] = useState('Click the button to start');
+  const [question, setQuestion] = useState('');
+  const [loading, setLoading]= useState(true)
+  const [fetching, setFetching]=useState(false)
   const styles= useStyles();
   const url = 'https://random-interview.herokuapp.com/question/random';
   
-  const fetchData = async () => { 
-    const respone = await axios.get(url)
-    setQuestion(respone.data.question) 
-  }
-  
+  useEffect(() =>{
+    const fetchData = async () => { 
+      setLoading(true);
+       const respone = await axios.get(url)
+       setQuestion(`${respone.data.question}`) 
+       setLoading(false)
+     }
+     fetchData()
+  },[fetching])
+
+
   return(
     <>
     <head>
@@ -70,15 +78,20 @@ function RandomQuestion(){
       />
     </head>
     <Box className={styles.base}> 
-      <Box className={styles.title}>
-        <h1>Interview Perp!</h1>
-      </Box>
       <Box className={styles.noteCard}>
-        <p>{question}</p>
+        {loading ? (
+          <img
+          className={styles.spinLoad}
+          src='https://bison.usgs.gov/images/spinner2.gif'
+          alt='loading...'
+          />
+        ):(
+          <p>{question}</p>
+        )}
       </Box>
       <Box className={styles.buttonBox}>
         <div>
-          <Button className={styles.nButton} onClick={fetchData}>Next</Button>
+          <Button className={styles.nButton} onClick={() => setFetching(!fetching)}>Next</Button>
         </div>
       </Box>
     </Box>
