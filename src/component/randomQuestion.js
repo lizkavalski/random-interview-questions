@@ -22,7 +22,6 @@ const useStyles = makeStyles({
   noteCardWriting:{
     '&::before':{
       backgroundImage:'url(https://p0.pikist.com/photos/907/756/leaf-notebook-leaf-binder-paper-background-lines-blue-red-daily-writing.jpg)',
-      // background:"#f7fca7",
       backgroundrRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: '50% 0',
