@@ -1,36 +1,82 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import Box from'@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import { borders } from '@material-ui/system'
+import If from './When.js'
+import {Box, Button, Grid, CircularProgress} from'@material-ui/core/';
+import {makeStyles} from '@material-ui/core/styles';
 
-
+const useStyles = makeStyles({
+  base:{
+    padding:'4em 8em 3em 8em',
+  },
+  noteCard:{
+    textAlign: 'center',
+    backgroundImage:'url(https://upload.wikimedia.org/wikipedia/commons/2/2e/Notecard.jpg)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    boxShadow: '.5em .5em .3em #9c9c9c',
+    padding:'5em 5em',
+  },
+  noteCardWriting:{
+    textAlign: 'center', 
+    fontSize:"3em",
+    fontFamily:['Nanum Pen Script', 'cursive'],
+  },
+  buttonBox:{
+    textAlign: 'center',
+    paddingTop:"2em", 
+    paddingBottom:"4em",
+  },
+  nButton:{
+    background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+    textAlign: 'center',
+    border: 0,
+    borderRadius: 3,
+    boxShadow: '0 3px 5px 2px #9c9c9c',
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+  }
+});
 
 function RandomQuestion(){
-  const [question, setQuestion] = useState('Click the button to start');
-
+  const [question, setQuestion] = useState('Click the button to begin');
+  const [loading, setLoading]= useState(true)
+  const [fetching, setFetching]=useState(false)
+  const styles= useStyles();
   const url = 'https://random-interview.herokuapp.com/question/random';
   
-  const fetchData = async () => { 
-    const respone = await axios.get(url)
-    setQuestion(respone.data.question) 
-  }
-  
+  useEffect(() =>{
+    const fetchData = async () => { 
+      setLoading(true);
+       const respone = await axios.get(url)
+       setQuestion(`${respone.data.question}`) 
+       setLoading(false)
+     }
+     fetchData()
+  },[fetching])
+
+
   return(
     <>
-    <Box margin="5em">
-      <Box display="flex" flexDirection="row" justifyContent="center" flexWrap="warp">
-        <h1>Interview Perp!</h1>
+   <Grid 
+        direction="column"
+        justify="center" 
+        alignItems="center"
+      >
+      <Box className={styles.noteCard}>
+        <If onClick={true}>
+        {loading ? (
+          <CircularProgress />
+          ):(
+            <Box className={styles.noteCardWriting}>{question}</Box>
+            )}
+        </If>
       </Box>
-      <Box bgcolor="#f7fca7" display="flex" flexDirection="row" justifyContent="center" alignItems="center" flexWrap="warp">
-        <p>{question}</p>
+      <Box className={styles.buttonBox}>
+          <Button className={styles.nButton} onClick={() => 
+          setFetching(!fetching)}> Next</Button>
       </Box>
-      <Box display="flex" flexDirection="row" justifyContent="center" flexWrap="warp">
-        <div>
-          <Button variant="contained" color="primary"  onClick={fetchData}>Next</Button>
-        </div>
-      </Box>
-    </Box>
+    </Grid>
     </>
   )
 }

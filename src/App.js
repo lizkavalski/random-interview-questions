@@ -1,14 +1,13 @@
 import React from 'react';
 // import './style/style.scss';
 import RandomQuestion from './component/randomQuestion';
-import Box from'@material-ui/core/Box';
+import Header from './component/Header';
 
 function App() {
   return (
     <>
-    <Box bgcolor="#d9d9d9">
+      <Header/>
       <RandomQuestion/>
-    </Box>
     </>
   );
 }
