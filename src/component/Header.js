@@ -5,12 +5,14 @@ import {makeStyles} from '@material-ui/core/styles';
 
  const useStyles = makeStyles({
  title:{
+   boxSizing:'content-box',
    display:"flex",
    flexDirection:"row",
    justifyContent:"center",
    flexWrap:"warp", 
+   paddingLeft:".3em",
    fontSize:"3em",
-   fontFamily:"Helvetica Neue",
+   fontFamily:['Permanent Marker','cursive']
   },
   subTitle:{
     display:"flex",
@@ -19,6 +21,7 @@ import {makeStyles} from '@material-ui/core/styles';
     flexWrap:"warp", 
     fontSize:"1.5em",
     marginTop:'-2.8em',
+    fontFamily:['Permanent Marker','cursive'],
   }
  });
 

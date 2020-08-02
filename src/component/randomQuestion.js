@@ -2,35 +2,29 @@ import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from'@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress'
 import {makeStyles} from '@material-ui/core/styles';
+
 const useStyles = makeStyles({
   base:{
-    background:'#d9d9d9',
+    // background:'#d9d9d9',
     padding:'4em 8em 3em 8em',
-  },
-  title:{
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"center",
-    flexWrap:"warp", 
-    fontSize:"3em",
-  
   },
   noteCard:{
     background:"#f7fca7",
+    boxShadow:"12px 12px 2px 6px #d9d9d9",
     display:"flex",
     flexDirection:"row",
     justifyContent:"center",
     alignItems:"center",
+    padding:'5em 5em',
     flexWrap:"warp",
-    padding:"5em",
-    fontSize:"2em",
+    boxSizing: 'content-box',
   },
-  spinLoad:{
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"center",
-    flexWrap:"warp", 
+  noteCardWriting:{
+    fontSize:"3em",
+    fontFamily:['Nanum Pen Script', 'cursive'],
+
   },
   buttonBox:{
     display:"flex",
@@ -80,13 +74,9 @@ function RandomQuestion(){
     <Box className={styles.base}> 
       <Box className={styles.noteCard}>
         {loading ? (
-          <img
-          className={styles.spinLoad}
-          src='https://bison.usgs.gov/images/spinner2.gif'
-          alt='loading...'
-          />
+          <CircularProgress />
         ):(
-          <p>{question}</p>
+          <Box className={styles.noteCardWriting}>{question}</Box>
         )}
       </Box>
       <Box className={styles.buttonBox}>
