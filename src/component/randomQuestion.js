@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import If from './When.js'
-import {Box, Button, Grid, CircularProgress} from'@material-ui/core/';
+import {Box, Button, Grid, CircularProgress, Card} from'@material-ui/core/';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -67,15 +66,13 @@ function RandomQuestion(){
         justify="center" 
         alignItems="center"
       >
-      <Box className={styles.noteCard}>
-        <If onClick={true}>
+      <Card className={styles.noteCard}>
         {loading ? (
           <CircularProgress />
           ):(
             <Box className={styles.noteCardWriting}>{question}</Box>
             )}
-        </If>
-      </Box>
+      </Card>
       <Box className={styles.buttonBox}>
           <Button className={styles.nButton} onClick={() => 
           setFetching(!fetching)}> Next</Button>
