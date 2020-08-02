@@ -1,31 +1,30 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from'@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { borders, style } from '@material-ui/system'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   base:{
-    background:'#d9d9d9',
+    // background:'#d9d9d9',
     padding:'4em 8em 3em 8em',
-  },
-  title:{
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"center",
-    flexWrap:"warp", 
-    fontSize:"3em",
   },
   noteCard:{
     background:"#f7fca7",
+    boxShadow:"12px 12px 2px 6px #d9d9d9",
     display:"flex",
     flexDirection:"row",
     justifyContent:"center",
     alignItems:"center",
+    padding:'5em 5em',
     flexWrap:"warp",
-    padding:"5em",
-    fontSize:"2em",
+    boxSizing: 'content-box',
+  },
+  noteCardWriting:{
+    fontSize:"3em",
+    fontFamily:['Nanum Pen Script', 'cursive'],
+
   },
   buttonBox:{
     display:"flex",
@@ -44,23 +43,26 @@ const useStyles = makeStyles({
     height: 48,
     padding: '0 30px',
   }
-})
-
-
-
-
-
+});
 
 function RandomQuestion(){
-  const [question, setQuestion] = useState('Click the button to start');
+  const [question, setQuestion] = useState('');
+  const [loading, setLoading]= useState(true)
+  const [fetching, setFetching]=useState(false)
   const styles= useStyles();
   const url = 'https://random-interview.herokuapp.com/question/random';
   
-  const fetchData = async () => { 
-    const respone = await axios.get(url)
-    setQuestion(respone.data.question) 
-  }
-  
+  useEffect(() =>{
+    const fetchData = async () => { 
+      setLoading(true);
+       const respone = await axios.get(url)
+       setQuestion(`${respone.data.question}`) 
+       setLoading(false)
+     }
+     fetchData()
+  },[fetching])
+
+
   return(
     <>
     <head>
@@ -70,15 +72,16 @@ function RandomQuestion(){
       />
     </head>
     <Box className={styles.base}> 
-      <Box className={styles.title}>
-        <h1>Interview Perp!</h1>
-      </Box>
       <Box className={styles.noteCard}>
-        <p>{question}</p>
+        {loading ? (
+          <CircularProgress />
+        ):(
+          <Box className={styles.noteCardWriting}>{question}</Box>
+        )}
       </Box>
       <Box className={styles.buttonBox}>
         <div>
-          <Button className={styles.nButton} onClick={fetchData}>Next</Button>
+          <Button className={styles.nButton} onClick={() => setFetching(!fetching)}>Next</Button>
         </div>
       </Box>
     </Box>
