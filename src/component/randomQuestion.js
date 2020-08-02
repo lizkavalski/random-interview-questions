@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
+import If from './When.js'
 import Box from'@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -7,12 +8,9 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   base:{
-    // background:'#d9d9d9',
     padding:'4em 8em 3em 8em',
   },
   noteCard:{
-    background:"#f7fca7",
-    boxShadow:"12px 12px 2px 6px #d9d9d9",
     display:"flex",
     flexDirection:"row",
     justifyContent:"center",
@@ -22,9 +20,24 @@ const useStyles = makeStyles({
     boxSizing: 'content-box',
   },
   noteCardWriting:{
+    '&::before':{
+      backgroundImage:'url(https://p0.pikist.com/photos/907/756/leaf-notebook-leaf-binder-paper-background-lines-blue-red-daily-writing.jpg)',
+      // background:"#f7fca7",
+      backgroundrRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: '50% 0',
+      content: '""',
+      display: 'block',
+      position: 'fixed',
+      left:'0',
+      top: '0',
+      width: '100%',
+      height: '100%',
+      zIndex:'-1',
+      opacity: '.3',
+    },
     fontSize:"3em",
     fontFamily:['Nanum Pen Script', 'cursive'],
-
   },
   buttonBox:{
     display:"flex",
@@ -46,7 +59,7 @@ const useStyles = makeStyles({
 });
 
 function RandomQuestion(){
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState('Click the button to begin');
   const [loading, setLoading]= useState(true)
   const [fetching, setFetching]=useState(false)
   const styles= useStyles();
@@ -73,16 +86,17 @@ function RandomQuestion(){
     </head>
     <Box className={styles.base}> 
       <Box className={styles.noteCard}>
+        <If onClick={true}>
         {loading ? (
           <CircularProgress />
-        ):(
-          <Box className={styles.noteCardWriting}>{question}</Box>
-        )}
+          ):(
+            <Box className={styles.noteCardWriting}>{question}</Box>
+            )}
+        </If>
       </Box>
       <Box className={styles.buttonBox}>
-        <div>
-          <Button className={styles.nButton} onClick={() => setFetching(!fetching)}>Next</Button>
-        </div>
+          <Button className={styles.nButton} onClick={() => 
+          setFetching(!fetching)}> Next</Button>
       </Box>
     </Box>
     </>
