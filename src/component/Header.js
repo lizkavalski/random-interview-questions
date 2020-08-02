@@ -6,7 +6,7 @@ import {makeStyles} from '@material-ui/core/styles';
  const useStyles = makeStyles({
   title:{
     textAlign: 'center',
-    fontSize:"3em",
+    fontSize:"4em",
    fontFamily:['Permanent Marker','cursive']
   },
   subTitle:{
