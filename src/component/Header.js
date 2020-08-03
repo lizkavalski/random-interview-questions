@@ -8,6 +8,7 @@ import {makeStyles} from '@material-ui/core/styles';
     textAlign: 'center',
     textShadow:'3px 5px 2px #9c9c9c',
     fontSize:"4em",
+    paddingTop:0,
     fontFamily:['Permanent Marker','cursive']
   },
   subTitle:{

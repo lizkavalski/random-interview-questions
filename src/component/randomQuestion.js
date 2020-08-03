@@ -4,9 +4,6 @@ import {Box, Button, Grid, CircularProgress, Card} from'@material-ui/core/';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  base:{
-    padding:'4em 8em 3em 8em',
-  },
   noteCard:{
     textAlign: 'center',
     backgroundImage:'url(https://upload.wikimedia.org/wikipedia/commons/2/2e/Notecard.jpg)',
@@ -14,7 +11,7 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     boxShadow: '.5em .5em .3em #9c9c9c',
     paddingTop:'5em',
-    paddingBottom:'10em',
+    paddingBottom:'5em',
     marginLeft:'5em',
     marginRight:'5em',
   },
