@@ -1,23 +1,23 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import If from './When.js'
-import {Box, Button, Grid, CircularProgress} from'@material-ui/core/';
+import {Box, Button, Grid, CircularProgress, Card} from'@material-ui/core/';
 import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
-  base:{
-    padding:'4em 8em 3em 8em',
-  },
   noteCard:{
     textAlign: 'center',
     backgroundImage:'url(https://upload.wikimedia.org/wikipedia/commons/2/2e/Notecard.jpg)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     boxShadow: '.5em .5em .3em #9c9c9c',
-    padding:'5em 5em',
+    paddingTop:'5em',
+    paddingBottom:'5em',
+    marginLeft:'5em',
+    marginRight:'5em',
   },
   noteCardWriting:{
     textAlign: 'center', 
+    paddingBottom:'5em',
     fontSize:"3em",
     fontFamily:['Nanum Pen Script', 'cursive'],
   },
@@ -63,15 +63,13 @@ function RandomQuestion(){
         justify="center" 
         alignItems="center"
       >
-      <Box className={styles.noteCard}>
-        <If onClick={true}>
+      <Card className={styles.noteCard}>
         {loading ? (
           <CircularProgress />
           ):(
             <Box className={styles.noteCardWriting}>{question}</Box>
             )}
-        </If>
-      </Box>
+      </Card>
       <Box className={styles.buttonBox}>
           <Button className={styles.nButton} onClick={() => 
           setFetching(!fetching)}> Next</Button>
