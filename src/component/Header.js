@@ -29,7 +29,7 @@ import {makeStyles} from '@material-ui/core/styles';
       alignItems="center"
       >
       <Box>
-        <h1 className={styles.title}>Interview Perp!</h1>
+        <h1 className={styles.title}>Interview Prep!</h1>
         <h3 className={styles.subTitle}> Click the 'Next' button for the next question!</h3>
       </Box>
     </Grid>
