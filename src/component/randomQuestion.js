@@ -11,13 +11,12 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     boxShadow: '.5em .5em .3em #9c9c9c',
     paddingTop:'5em',
-    paddingBottom:'5em',
+    paddingBottom:'2em',
     marginLeft:'5em',
     marginRight:'5em',
   },
   noteCardWriting:{
     textAlign: 'center', 
-    paddingBottom:'5em',
     fontSize:"3em",
     fontFamily:['Nanum Pen Script', 'cursive'],
   },
@@ -65,15 +64,15 @@ function RandomQuestion(){
       >
       <Card className={styles.noteCard}>
         {loading ? (
-          <CircularProgress />
+          <CircularProgress variant="determinate" value={50} />
           ):(
             <Box className={styles.noteCardWriting}>{question}</Box>
             )}
+        <Box className={styles.buttonBox}>
+            <Button className={styles.nButton} onClick={() => 
+            setFetching(!fetching)}> Next</Button>
+        </Box>
       </Card>
-      <Box className={styles.buttonBox}>
-          <Button className={styles.nButton} onClick={() => 
-          setFetching(!fetching)}> Next</Button>
-      </Box>
     </Grid>
     </>
   )
