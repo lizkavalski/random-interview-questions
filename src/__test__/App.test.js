@@ -7,15 +7,15 @@ import RandomQuestion from '../component/randomQuestion'
 
 describe('render the app', () => { 
   it('renders the App', () => {
-    const wrapper = mount(<App/>);
+    const wrapper = render(<App/>);
     expect(wrapper).toBeTruthy();
   })
   it('renders the Header', () => {
-    const wrapper = mount(<Header/>);
+    const wrapper = render(<Header/>);
     expect(wrapper).toBeTruthy();
   })
   it('renders the RandomQuestion', () => {
-    const wrapper = mount(<RandomQuestion/>);
+    const wrapper = render(<RandomQuestion/>);
     expect(wrapper).toBeTruthy();
   })
     
