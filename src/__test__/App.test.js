@@ -5,12 +5,12 @@ import App from '../App';
 import Header from '../component/Header'
 import RandomQuestion from '../component/randomQuestion'
 
-describe('render the compontents', () => { 
-  it('renders the Header', () => {
-    const wrapper = mount(<Header/>);
-    const title='Interview Prep!';
-    expect(wrapper.find('#title')).toIncludeText(title);
-  });
+describe('render the app', () => { 
+  it('renders the App', () => {
+    const wrapper = mount(<App/>);
+    expect(wrapper).toBeTruthy();
+  })
+    
 
 });
 
