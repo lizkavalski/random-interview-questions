@@ -10,6 +10,14 @@ describe('render the app', () => {
     const wrapper = mount(<App/>);
     expect(wrapper).toBeTruthy();
   })
+  it('renders the Header', () => {
+    const wrapper = mount(<Header/>);
+    expect(wrapper).toBeTruthy();
+  })
+  it('renders the RandomQuestion', () => {
+    const wrapper = mount(<RandomQuestion/>);
+    expect(wrapper).toBeTruthy();
+  })
     
 
 });
