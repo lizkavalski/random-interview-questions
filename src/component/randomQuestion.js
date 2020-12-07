@@ -64,7 +64,7 @@ function RandomQuestion(){
       >
       <Card className={styles.noteCard}>
         {loading ? (
-          <CircularProgress />
+          <CircularProgress variant="determinate" value={50} />
           ):(
             <Box className={styles.noteCardWriting}>{question}</Box>
             )}
