@@ -19,4 +19,4 @@ Create almost a flash card game with random behavioral based interview questions
 
 Instead of the traditional 2-side that has a prompt and the fact, I did one side which is just the prompt, or in the case just a interview question. The reason being are the questions are more open ended, and to help the user not sound like they’re a robot in a play, or reading off a card. Also the questions aren’t not track to see if the user already gotten the question because the point is to build a stronger connection in the brain.
 
-This is done by the user clicking a button for a question. When the button is clicked it send the api to get random question from it server (you can read more “here” on the server). Then renders a questions to the user. The user then can practice how they would answer the question.
+This is done by the user clicking a button for a question. When the button is clicked it send the api to get random question from it server (you can read more “[here](https://github.com/lizkavalski/random-question-backend)” on the server). Then renders a questions to the user. The user then can practice how they would answer the question.
